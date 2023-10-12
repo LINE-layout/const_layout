@@ -46,6 +46,31 @@ This repository provides the official code for the paper "Constrained Graphic La
     
 7. Install [ImageMagick](https://imagemagick.org/) for visualization
 
+## Docker
+```bash
+make build
+make run
+```
+
+Follow `Installation 3 to 6` in the container.
+```bash
+pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch-scatter==2.0.7 -f https://data.pyg.org/whl/torch-1.8.1+cu111.html
+pip install torch-sparse==0.6.10 -f https://data.pyg.org/whl/torch-1.8.1+cu111.html
+pip install torch-geometric==1.7.2
+
+pip install -r requirements.txt
+```
+
+For ssh connection to the container,
+- register your local public key(`~/.ssh/id_rsa.pub`) to `~/.ssh/authorized_keys`
+- run with `/usr/sbin/sshd -D` or `/sbin/sshd -D`
+
+The ssh connection will be established through `SSH_PORT` defined in [Makefile](./Makefile).
+```bash
+ssh root@hostname:SSH_PORT -i ~/.ssh/id_rsa
+```
+
 
 ## Development environment
 
